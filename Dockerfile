@@ -13,4 +13,4 @@ RUN pip3 install -r requirements.txt &&\
     apk add --no-cache ruby &&\
     gem install ruby-msg
 
-CMD ["python", "/app/msg2eml.py"]
+CMD ["python", "/app/zendesk_msg2eml.py"]
