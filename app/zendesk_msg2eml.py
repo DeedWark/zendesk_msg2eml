@@ -43,11 +43,13 @@ def msg2eml(view_id):
                 file_url = attachment.content_url
                 file_type = attachment.content_type
                 file_name = attachment.file_name
+                file_count = 0
                 # Download only MSG file
                 if file_type == "application/octet-stream" or file_type == "application/vns.ms-outlook":
                     if file_name.lower().endswith(".msg"):
                         r = requests.get(file_url)
                         open(DIR+f"/{file_name[:-4]}{file_count}.msg", "wb").write(r.content)
+                        file_count += 1
 
         """ CONVERT ALL MSG FILE IN MSG DIR WITH RUBY MSG CONVERTER """
         for file in os.listdir(DIR):
