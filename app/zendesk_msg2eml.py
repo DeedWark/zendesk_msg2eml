@@ -22,7 +22,7 @@ token = os.environ.get("ZENDESK_TOKEN")
 creds = {
     'email': f"{email}",
     'token': f"{token}",
-    'subdomain': f"{subdomain}'
+    'subdomain': f"{subdomain}"
 }
 zenpy = Zenpy(**creds)
 
