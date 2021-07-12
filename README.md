@@ -20,6 +20,7 @@ docker build --build-arg ZENDESK_TOKEN -t zendesk_msg2eml .
 ```
 
 - Run
+
 ```bash
 docker run -d --name zendesk_msg2eml zendesk_msg2eml
 ```
