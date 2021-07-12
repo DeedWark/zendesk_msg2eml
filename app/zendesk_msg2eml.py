@@ -6,9 +6,18 @@ import subprocess
 import configparser
 from zenpy import Zenpy
 
-email = os.environ.get("ZENDESK_LOGIN")
+# CONFIG PARSER
+config = configparser.ConfigParser()
+config.read('config.txt')
+email = config.get('ZENDESK', 'email')
+subdomain = config.get('ZENDESK', 'subdomain')
+view_id = config.get('ZENDESK', 'view_id')
+view_id = int(view_id)
+author_id = config.get('ZENDESK', 'author_id')
+author_id = int(author_id)
+DIR = config.get('SYSTEM', 'directory')
+# Env var
 token = os.environ.get("ZENDESK_TOKEN")
-subdomain = os.environ.get("ZENDESK_SUBDOMAIN")
 
 creds = {
     'email': f"{email}",
@@ -16,13 +25,6 @@ creds = {
     'subdomain': f"{subdomain}'
 }
 zenpy = Zenpy(**creds)
-
-# CONFIG PARSER
-config = configparser.ConfigParser()
-config.read('config.txt')
-view_id = config.get('ZENDESK', 'view_id')
-author_id = config.get('ZENDESK', 'author_id')
-DIR = config.get('SYSTEM', 'directory')
 
 if not os.path.exists(DIR):
     os.mkdir(DIR)
