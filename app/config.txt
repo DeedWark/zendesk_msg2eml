@@ -1,0 +1,6 @@
+[ZENDESK]
+view_id=yourviewid
+author_id=yourauthorid
+
+[SYSTEM]
+directory=yourdir
