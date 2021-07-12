@@ -26,3 +26,6 @@ docker build --build-arg ZENDESK_TOKEN -t zendesk_msg2eml .
 ```bash
 docker run -d --name zendesk_msg2eml zendesk_msg2eml
 ```
+
+## Infos
+- I choose mapitool from ruby-msg because this tool is able to convert HTML/CSS instead of others scripts
