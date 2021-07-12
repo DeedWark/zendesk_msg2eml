@@ -1,4 +1,6 @@
 [ZENDESK]
+email=youremail
+subdomain=yoursubdomain
 view_id=yourviewid
 author_id=yourauthorid
 
