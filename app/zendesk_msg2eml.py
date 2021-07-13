@@ -26,8 +26,6 @@ creds = {
 }
 zenpy = Zenpy(**creds)
 
-
-
 def msg2eml(view_id):
     """ CHECK DIR, IF NOT EXISTS, CREATE IT ELSE REMOVE AND RECREATE IT """
     if not os.path.exists(DIR):
