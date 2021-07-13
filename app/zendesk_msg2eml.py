@@ -26,13 +26,16 @@ creds = {
 }
 zenpy = Zenpy(**creds)
 
-if not os.path.exists(DIR):
-    os.mkdir(DIR)
-else:
-    shutil.rmtree(DIR, ignore_errors=True)
-    os.mkdir(DIR)
+
 
 def msg2eml(view_id):
+    """ CHECK DIR, IF NOT EXISTS, CREATE IT ELSE REMOVE AND RECREATE IT """
+    if not os.path.exists(DIR):
+        os.mkdir(DIR)
+    else:
+        shutil.rmtree(DIR, ignore_errors=True)
+        os.mkdir(DIR)
+        
     """ EXECUTE VIEW IN ORDER TO GET TICKETS """
     for ticket in zenpy.views.tickets(view=view_id):
         ticket_id = ticket.id
