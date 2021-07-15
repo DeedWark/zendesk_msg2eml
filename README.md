@@ -21,11 +21,10 @@ python3 zendesk_msg2eml.py
 docker build --build-arg ZENDESK_TOKEN="<yourtoken>" -t zendesk_msg2eml .
 # OR
 export ZENDESK_TOKEN="<yourtoken>"
-docker build --build-arg ZENDESK_TOKEN -t zendesk_msg2eml .
+docker build --build-arg ZENDESK_TOKEN -t zendesk_msg2eml
 ```
 
 - Run
-
 ```
 docker run -d --name zendesk_msg2eml zendesk_msg2eml
 ```
