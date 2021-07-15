@@ -11,6 +11,9 @@ Convert MSG to EML in Zendesk Tickets
 python3 zendesk_msg2eml.py
 ```
 
+## Zendesk
+- Create a view -> contains none of the following tags: msgconverted
+
 ## Docker
 
 -> Build
