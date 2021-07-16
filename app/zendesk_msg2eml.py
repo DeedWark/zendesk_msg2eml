@@ -8,7 +8,7 @@ from zenpy import Zenpy
 
 # CONFIG PARSER
 config = configparser.ConfigParser()
-config.read('config.txt')
+config.read('/app/config.txt')
 email = config.get('ZENDESK', 'email')
 subdomain = config.get('ZENDESK', 'subdomain')
 view_id = config.get('ZENDESK', 'view_id')
@@ -26,8 +26,7 @@ creds = {
 }
 zenpy = Zenpy(**creds)
 
-def msg2eml(view_id):
-    DIR = "msg"
+def msg2eml(view_id, author_id, DIR):
     if not os.path.exists(DIR):
         os.mkdir(DIR)
     else:
@@ -99,7 +98,7 @@ def msg2eml(view_id):
 
 def main():
     while True:
-        msg2eml(view_id)
+        msg2eml(view_id, author_id, DIR)
         time.sleep(60)
 
 if __name__ == '__main__':
