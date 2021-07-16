@@ -36,7 +36,7 @@ def msg2eml(view_id):
     """ EXECUTE VIEW IN ORDER TO GET TICKETS """
     for ticket in zenpy.views.tickets(view=view_id):
         ticket_id = ticket.id
-        print(ticket_id)
+        print(f"Ticket available in this view: {ticket_id}")
 
         """ GET ALL COMMENT, ALL ATTACHMENTS AND THEIR CONTENT_URL, CONTENT_TYPE AND FILE_NAME """
         for comment in zenpy.tickets.comments(ticket_id):
@@ -73,7 +73,7 @@ def msg2eml(view_id):
         for file in os.listdir(DIR):
             if file.lower().endswith(".eml"):
                 file_path = DIR+"/"+file
-                print(file_path)
+                print(f"File in {file_path}")
                 try:
                     upload_instance = zenpy.attachments.upload(file_path)
                     ticket = zenpy.tickets(id=ticket_id)
