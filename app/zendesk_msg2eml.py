@@ -101,7 +101,7 @@ def msg2eml(view_id, author_id, DIR):
 
 def main():
     while True:
-        msg2eml(conf["view_id"], conf["author_id"], conf["directory"])
+        msg2eml(conf["view_id"], conf["author_id"], conf["dir"])
         time.sleep(60)
 
 if __name__ == '__main__':
