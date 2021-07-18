@@ -6,24 +6,27 @@ import subprocess
 import configparser
 from zenpy import Zenpy
 
-# CONFIG PARSER
-config = configparser.ConfigParser()
-config.read('/app/config.txt')
-email = config.get('ZENDESK', 'email')
-subdomain = config.get('ZENDESK', 'subdomain')
-view_id = config.get('ZENDESK', 'view_id')
-view_id = int(view_id)
-author_id = config.get('ZENDESK', 'author_id')
-author_id = int(author_id)
-DIR = config.get('SYSTEM', 'directory')
-# ENV VAR
-token = os.environ.get("ZENDESK_TOKEN")
+def init_conf():
+    config = configparser.ConfigParser()
+    config.read('app/config.txt')
+    conf = {}
+    conf["email"] = config.get('ZENDESK', 'email')
+    conf["subdomain"] = config.get('ZENDESK', 'subdomain')
+    conf["view_id"] = int(config.get('ZENDESK', 'view_id'))
+    conf["author_id"] = int(config.get('ZENDESK', 'author_id'))
+    conf["token"] = os.environ.get("ZENDESK_TOKEN")
+    # System
+    conf["dir"] = config.get('SYSTEM', 'directory')
+    return conf
+
+conf = init_conf()
 
 creds = {
-    'email': f"{email}",
-    'token': f"{token}",
-    'subdomain': f"{subdomain}"
+    'email': conf["email"],
+    'token': conf["token"],
+    'subdomain': conf["subdomain"]
 }
+
 zenpy = Zenpy(**creds)
 
 def msg2eml(view_id, author_id, DIR):
@@ -98,7 +101,7 @@ def msg2eml(view_id, author_id, DIR):
 
 def main():
     while True:
-        msg2eml(view_id, author_id, DIR)
+        msg2eml(conf["view_id"], conf["author_id"], conf["directory"])
         time.sleep(60)
 
 if __name__ == '__main__':
