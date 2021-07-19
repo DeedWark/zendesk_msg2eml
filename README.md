@@ -1,10 +1,11 @@
 # zendesk_msg2eml
 Convert MSG to EML in Zendesk Tickets
+## Init
 
-## Launch
 
-!!! Don't forget to change values into app/config.txt
-!!! Create a Zendesk View -> contains none of the following tags: `msg2eml_done`, `msg2eml_failed`
+1 - Don't forget to change values into app/config.txt
+
+2 - Create a Zendesk View -> contains none of the following tags: `msg2eml_done`, `msg2eml_failed`
 
 - Zendesk Email, Zendesk Subdomain, Zendesk view_id, Zendesk author_id, MSG directory = app/config.txt
 > Example:
@@ -29,9 +30,6 @@ export ZENDESK_TOKEN="1234567abcdef"
 python3 app/zendesk_msg2eml.py
 ```
 
-## Zendesk
-- Create a view -> contains none of the following tags: msgconverted
-
 ## Docker
 
 - Build
@@ -42,10 +40,15 @@ export ZENDESK_TOKEN="<yourtoken>"
 docker build --build-arg ZENDESK_TOKEN -t zendesk_msg2eml .
 ```
 
--> Run
+- Run
+
+
 ```
 docker run -d --name zendesk_msg2eml zendesk_msg2eml
 ```
 ____
-## Infos
+
+
+## Infos
+
 - I choose mapitool from ruby-msg because this tool is able to convert HTML/CSS instead of others scripts
