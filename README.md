@@ -3,8 +3,9 @@ Convert MSG to EML in Zendesk Tickets
 
 ## Launch
 !!! Don't forget to change values into app/config.txt
+!!! Create a Zendesk View -> contains none of the following tags: `msg2eml_done`, `msg2eml_failed`
 
-- zendesk email, zendesk subdomain, zendesk view_id, zendesk author_id, MSG directory = app/config.txt
+- Zendesk Email, Zendesk Subdomain, Zendesk view_id, Zendesk author_id, MSG directory = app/config.txt
 > Example:
 ```
 [ZENDESK]
@@ -16,7 +17,7 @@ author_id=9876543
 [SYSTEM]
 directory=msg
 ```
-- zendesk token = environment variable -> ZENDESK_TOKEN
+- Zendesk Token = environment variable -> ZENDESK_TOKEN
 > Example:
 ```bash
 export ZENDESK_TOKEN="1234567abcdef"
