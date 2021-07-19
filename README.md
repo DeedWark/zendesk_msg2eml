@@ -8,7 +8,7 @@ Convert MSG to EML in Zendesk Tickets
 - If you want to launch directly this script in your host, make sure you have mapitool installed -> `apt install rubygems gems && gem install ruby-msg`
 
 ```
-python3 zendesk_msg2eml.py
+python3 app/zendesk_msg2eml.py
 ```
 
 ## Zendesk
