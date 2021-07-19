@@ -1,12 +1,28 @@
 # zendesk_msg2eml
 Convert MSG to EML in Zendesk Tickets
 
-## Init
-/!\ Don't forget to change values into app/config.txt
-
 ## Launch
-- If you want to launch directly this script in your host, make sure you have mapitool installed -> `apt install rubygems gems && gem install ruby-msg`
+!!! Don't forget to change values into app/config.txt
 
+- zendesk email, zendesk subdomain, zendesk view_id, zendesk author_id, MSG directory = app/config.txt
+> Example:
+```
+[ZENDESK]
+email=user@email.com
+subdomain=mycompany
+view_id=1234567
+author_id=9876543
+
+[SYSTEM]
+directory=msg
+```
+- zendesk token = environment variable -> ZENDESK_TOKEN
+> Example:
+```bash
+export ZENDESK_TOKEN="1234567abcdef"
+```
+
+- If you want to launch directly this script in your host, make sure you have mapitool installed -> `apt install rubygems gems && gem install ruby-msg`
 ```
 python3 app/zendesk_msg2eml.py
 ```
